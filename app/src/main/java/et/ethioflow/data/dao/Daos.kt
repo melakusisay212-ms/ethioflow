@@ -157,22 +157,22 @@ interface GoalDao {
 @Dao
 interface TransactionDao {
     @Query("SELECT * FROM transactions ORDER BY ethDate DESC, createdAt DESC")
-    fun observeAll(): Flow<List<Transaction>>
+    fun observeAll(): Flow<List<MoneyTransaction>>
 
     @Query("SELECT * FROM transactions WHERE ethDate = :ethDate ORDER BY createdAt DESC")
-    fun observeByDate(ethDate: String): Flow<List<Transaction>>
+    fun observeByDate(ethDate: String): Flow<List<MoneyTransaction>>
 
     @Query("SELECT * FROM transactions WHERE ethDate >= :from AND ethDate <= :to ORDER BY ethDate DESC")
-    suspend fun getBetween(from: String, to: String): List<Transaction>
+    suspend fun getBetween(from: String, to: String): List<MoneyTransaction>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insert(tx: Transaction): Long
+    suspend fun insert(tx: MoneyTransaction): Long
 
     @Update
-    suspend fun update(tx: Transaction)
+    suspend fun update(tx: MoneyTransaction)
 
     @Delete
-    suspend fun delete(tx: Transaction)
+    suspend fun delete(tx: MoneyTransaction)
 }
 
 @Dao

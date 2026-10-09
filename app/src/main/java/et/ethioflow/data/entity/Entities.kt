@@ -130,7 +130,7 @@ data class Goal(
     ],
     indices = [Index("ethDate"), Index("projectId"), Index("type")]
 )
-data class Transaction(
+data class MoneyTransaction(
     @PrimaryKey(autoGenerate = true) val id: Long = 0,
     val title: String,
     val amount: Double,

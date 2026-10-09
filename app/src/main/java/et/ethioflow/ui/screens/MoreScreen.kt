@@ -30,10 +30,10 @@ fun MoreScreen(
 ) {
     val items = listOf(
         MoreItem("Projects", "Group your work", Icons.Outlined.Folder, "projects"),
-        MoreItem("Notes", "PARA second brain", Icons.Outlined.Notes, "notes"),
-        MoreItem("Goals", "Link tasks & habits", Icons.Outlined.Flag, "goals"),
-        MoreItem("Finance", "Income & expenses", Icons.Outlined.AccountBalanceWallet, "finance"),
-        MoreItem("Journal", "Daily + weekly review", Icons.Outlined.Book, "journal"),
+        MoreItem("Notes", "PARA second brain", Icons.Outlined.Description, "notes"),
+        MoreItem("Goals", "Link tasks & habits", Icons.Outlined.EmojiEvents, "goals"),
+        MoreItem("Finance", "Income & expenses", Icons.Outlined.Payments, "finance"),
+        MoreItem("Journal", "Daily + weekly review", Icons.Outlined.MenuBook, "journal"),
     )
 
     Column(Modifier.fillMaxSize().background(SurfaceLight)) {

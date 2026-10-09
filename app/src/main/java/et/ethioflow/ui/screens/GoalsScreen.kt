@@ -76,7 +76,7 @@ fun GoalsScreen(repo: Repository, onBack: () -> Unit) {
                     }
                     Spacer(Modifier.height(10.dp))
                     LinearProgressIndicator(
-                        progress = goal.progress.coerceIn(0f, 1f),
+                        progress = { goal.progress.coerceIn(0f, 1f) },
                         modifier = Modifier.fillMaxWidth().height(8.dp),
                         color = AccentBlue,
                         trackColor = Color(0xFFE2E5EF),

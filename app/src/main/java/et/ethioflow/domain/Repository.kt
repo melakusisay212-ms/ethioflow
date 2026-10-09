@@ -146,18 +146,18 @@ class Repository(
     }
 
     // ---- Finance ----
-    fun observeTransactions(): Flow<List<Transaction>> = transactionDao.observeAll()
-    fun observeTransactionsOn(ethDate: String): Flow<List<Transaction>> = transactionDao.observeByDate(ethDate)
+    fun observeTransactions(): Flow<List<MoneyTransaction>> = transactionDao.observeAll()
+    fun observeTransactionsOn(ethDate: String): Flow<List<MoneyTransaction>> = transactionDao.observeByDate(ethDate)
 
     suspend fun addTransaction(
         title: String, amount: Double, type: TxType, category: String = "Other",
         ethDate: EthiopianDate = EthiopianDate.now(), projectId: Long? = null, notes: String = ""
     ): Long = transactionDao.insert(
-        Transaction(title = title, amount = amount, type = type, category = category,
+        MoneyTransaction(title = title, amount = amount, type = type, category = category,
             ethDate = ethDate.toString(), projectId = projectId, notes = notes)
     )
 
-    suspend fun deleteTransaction(tx: Transaction) = transactionDao.delete(tx)
+    suspend fun deleteTransaction(tx: MoneyTransaction) = transactionDao.delete(tx)
 
     // ---- Journal ----
     fun observeJournal(): Flow<List<JournalEntry>> = journalDao.observeAll()
@@ -181,7 +181,7 @@ class Repository(
         val to: EthiopianDate,
         val tasksCompleted: List<Task>,
         val habitLogs: List<HabitLog>,
-        val transactions: List<Transaction>,
+        val transactions: List<MoneyTransaction>,
         val journalEntries: List<JournalEntry>,
         val notesCreated: Int
     )

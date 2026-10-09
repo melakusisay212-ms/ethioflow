@@ -29,7 +29,7 @@ class Converters {
         Task::class, Project::class, EntityLink::class,
         Habit::class, HabitLog::class,
         Note::class, Goal::class,
-        Transaction::class, JournalEntry::class
+        MoneyTransaction::class, JournalEntry::class
     ],
     version = 3,
     exportSchema = false
